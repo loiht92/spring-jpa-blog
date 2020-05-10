@@ -7,6 +7,7 @@ import com.codegym.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -29,7 +30,7 @@ public class BlogController {
     }
 
     @GetMapping
-    public ModelAndView showFormBlog(@RequestParam("search")Optional<String> search, Pageable pageable){
+    public ModelAndView showFormBlog(@RequestParam("search") Optional<String> search, Pageable pageable){
         Page<Blog> blogs;
         if (search.isPresent()){
             blogs = blogService.findAllByBloggers(search.get(), pageable);
@@ -49,7 +50,7 @@ public class BlogController {
     }
 
     @PostMapping("/create")
-    public String saveBlog(@ModelAttribute("blog") Blog blog, RedirectAttributes redirect){
+    public String saveBlog(@ModelAttribute("blog") Blog blog, RedirectAttributes redirect) {
         blogService.save(blog);
         redirect.addFlashAttribute("message","create blog successfully !");
         return "redirect:/blog";
@@ -62,13 +63,14 @@ public class BlogController {
             ModelAndView modelAndView = new ModelAndView("/blog/edit");
             modelAndView.addObject("blog", blog.get());
             return modelAndView;
-        } else {
+        }
+        else {
             return new ModelAndView("/error");
         }
     }
 
     @PostMapping("/edit")
-    public String editBlog(@ModelAttribute("blog") Blog blog, RedirectAttributes redirect){
+    public String editBlog(@ModelAttribute("blog") Blog blog, RedirectAttributes redirect) {
         blogService.save(blog);
         redirect.addFlashAttribute("message", "edit blog successfully !");
         return "redirect:/blog";

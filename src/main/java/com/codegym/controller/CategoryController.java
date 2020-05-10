@@ -21,6 +21,9 @@ public class CategoryController {
     @Autowired
     private CategoryService categoryService;
 
+    @Autowired
+    private BlogService blogService;
+
     @GetMapping
     public ModelAndView showFormCategory(@RequestParam("search")Optional<String> search, Pageable pageable){
         Page<Category> categories;

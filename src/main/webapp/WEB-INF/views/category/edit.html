@@ -12,14 +12,13 @@
     <table>
         <tr>
             <td>Category Name:</td>
-            <td><input th:text="${category.name}" th:field="*{name}"></td>
+            <td><input type="text" th:value="${category.name}" th:field="*{name}"></td>
         </tr>
         <tr>
             <td></td>
             <td><input type="submit" value="Edit"></td>
         </tr>
     </table>
-
 </form>
 </body>
 </html>
