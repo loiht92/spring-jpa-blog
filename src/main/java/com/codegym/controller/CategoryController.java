@@ -68,6 +68,24 @@ public class CategoryController {
         return "redirect:/category";
     }
 
+    @GetMapping("/delete/{id}")
+    public ModelAndView showDeleteFormCategory(@PathVariable Long id){
+        Optional<Category> category = categoryService.findById(id);
+        if (category.isPresent()){
+            ModelAndView modelAndView = new ModelAndView("/category/delete");
+            modelAndView.addObject("category", category.get());
+            return modelAndView;
+        }else {
+            return new ModelAndView("/error");
+        }
+    }
+
+    @PostMapping("/delete")
+    public String deleteCategory(@ModelAttribute("category") Category category, RedirectAttributes redirect){
+        categoryService.remove(category.getId());
+        redirect.addFlashAttribute("message", "delete category successfully !");
+        return "redirect:/category";
+    }
 }
 
 
