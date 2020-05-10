@@ -86,6 +86,18 @@ public class CategoryController {
         redirect.addFlashAttribute("message", "delete category successfully !");
         return "redirect:/category";
     }
+
+    @GetMapping("/view/{id}")
+    public ModelAndView viewCategory(@PathVariable Long id){
+        Optional<Category> category = categoryService.findById(id);
+        if (category.isPresent()){
+            ModelAndView modelAndView = new ModelAndView("/category/view");
+            modelAndView.addObject("category", category.get());
+            return modelAndView;
+        }else {
+            return new ModelAndView("/error");
+        }
+    }
 }
 
 
