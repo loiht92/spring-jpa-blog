@@ -18,7 +18,7 @@ public interface BlogService {
     void remove(Long id);
 
     @Query("select b from Blog b where b.bloggers like %:bloggers%")
-    Page<Blog> findAllByBloggers(String loggers, Pageable pageable);
+    Page<Blog> findAllByBloggers(String bloggers, Pageable pageable);
 
     Page<Blog> findAllByCategory(Category category, Pageable pageable);
 }

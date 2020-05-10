@@ -62,8 +62,7 @@ public class BlogController {
             ModelAndView modelAndView = new ModelAndView("/blog/edit");
             modelAndView.addObject("blog", blog.get());
             return modelAndView;
-        }
-        else {
+        } else {
             return new ModelAndView("/error");
         }
     }
