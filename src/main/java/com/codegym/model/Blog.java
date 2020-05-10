@@ -26,7 +26,8 @@ public class Blog {
     public Blog(){
     }
 
-    public Blog(String content, String bloggers, String name){
+    public Blog(Long id, String content, String bloggers, String name){
+        this.id = id;
         this.content = content;
         this.bloggers = bloggers;
         this.name = name;

@@ -74,4 +74,24 @@ public class BlogController {
         return "redirect:/blog";
     }
 
+    @GetMapping("/delete/{id}")
+    public ModelAndView showDeleteFormBlog(@PathVariable Long id){
+        Optional<Blog> blog = blogService.findById(id);
+        if (blog.isPresent()){
+            ModelAndView modelAndView = new ModelAndView("/blog/delete");
+            modelAndView.addObject("blog", blog.get());
+            return modelAndView;
+        }
+        else {
+            return new ModelAndView("/error");
+        }
+    }
+
+    @PostMapping("/delete")
+    public String deleteBlog(@ModelAttribute("blog") Blog blog, RedirectAttributes redirect){
+        blogService.remove(blog.getId());
+        redirect.addFlashAttribute("message", "delete blog successfully !");
+        return "redirect:/blog";
+    }
+
 }
