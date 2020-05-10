@@ -48,4 +48,40 @@ public class CategoryController {
         return "redirect:/category";
     }
 
+    @GetMapping("/edit/{id}")
+    public ModelAndView showEditFormCategory(@PathVariable Long id){
+        Optional<Category> category = categoryService.findById(id);
+        if (category.isPresent()){
+            ModelAndView modelAndView = new ModelAndView("/category/edit");
+            modelAndView.addObject("category", category.get());
+            return modelAndView;
+        }
+        else {
+            return new ModelAndView("/error");
+        }
+    }
+
+    @PostMapping("/edit")
+    public String editCategory(@ModelAttribute("category") Category category, RedirectAttributes redirect){
+        categoryService.save(category);
+        redirect.addFlashAttribute("category", "edit category successfully !");
+        return "redirect:/category";
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
