@@ -1,6 +1,5 @@
 package com.codegym.service;
 
-import com.codegym.model.Blog;
 import com.codegym.model.Category;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -19,7 +18,7 @@ public interface CategoryService {
     //Them restful
     Iterable<Category> findAll();
 
-    Category findById(Long id);
+    Optional<Category> findById(Long id);
 
     void save(Category category);
 

@@ -15,4 +15,7 @@ public interface BlogRepository extends PagingAndSortingRepository<Blog, Long> {
     Page<Blog> findAllByCategory(Category category, Pageable pageable);
 
     Page<Blog> findAllByOrderByNameDesc(Pageable pageable);
+
+    //Them restful
+    Iterable<Blog> findAllByCategory(Category category);
 }

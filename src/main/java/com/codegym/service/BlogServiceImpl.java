@@ -30,15 +30,15 @@ public class BlogServiceImpl implements BlogService{
         return blogRepository.findAllByCategory(category);
     }
 
-    @Override
-    public Blog findById(Long id) {
-        return null;
-    }
-
 //    @Override
-//    public Optional<Blog> findById(Long id) {
-//        return blogRepository.findById(id);
+//    public Blog findById(Long id) {
+//        return null;
 //    }
+
+    @Override
+    public Optional<Blog> findById(Long id) {
+        return blogRepository.findById(id);
+    }
 
     @Override
     public void save(Blog blog) {

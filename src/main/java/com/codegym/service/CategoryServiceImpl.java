@@ -23,9 +23,19 @@ public class CategoryServiceImpl implements CategoryService{
     }
 
     @Override
+    public Iterable<Category> findAll() {
+        return categoryRepository.findAll();
+    }
+
+    @Override
     public Optional<Category> findById(Long id) {
         return categoryRepository.findById(id);
     }
+
+//    @Override
+//    public Optional<Category> findById(Long id) {
+//        return categoryRepository.findById(id);
+//    }
 
     @Override
     public void save(Category category) {

@@ -19,9 +19,7 @@ public interface BlogService {
 
     Iterable<Blog> findAllByCategory(Category category);
 
-    Blog findById(Long id);
-
-    //Optional<Blog> findById(Long id);
+    Optional<Blog> findById(Long id);
 
     void save(Blog blog);
 

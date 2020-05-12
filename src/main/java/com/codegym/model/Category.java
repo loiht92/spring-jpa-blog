@@ -22,8 +22,8 @@ public class Category { // Chu de
         this.name = name;
     }
 
-    @OneToMany(targetEntity = Blog.class) //
-    private List<Blog> blogs = new ArrayList<>();
+    //@OneToMany(targetEntity = Blog.class, mappedBy = "category", fetch = FetchType.EAGER) //
+    //private List<Blog> blogs;
 
     public Long getId() {
         return id;
@@ -41,11 +41,11 @@ public class Category { // Chu de
         this.name = name;
     }
 
-    public List<Blog> getBlogs() {
-        return blogs;
-    }
-
-    public void setBlogs(List<Blog> blogs) {
-        this.blogs = blogs;
-    }
+//    public List<Blog> getBlogs() {
+//        return blogs;
+//    }
+//
+//    public void setBlogs(List<Blog> blogs) {
+//        this.blogs = blogs;
+//    }
 }
