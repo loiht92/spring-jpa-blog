@@ -28,9 +28,9 @@
     </tr>
 </table>
 <div>
-    <a th:href="@{'/blog'(page=${category.number - 1})}" th:if="${category.hasPrevious()}">Previous</a>
+    <a th:href="@{'/category'(page=${category.number - 1})}" th:if="${category.hasPrevious()}">Previous</a>
     <span th:text="${category.number + 1}"></span>/<span th:text="${category.totalPages}"></span>
-    <a th:href="@{'/customer'(page=${category.number + 1})}" th:if="${category.hasNext()}">Next</a>
+    <a th:href="@{'/category'(page=${category.number + 1})}" th:if="${category.hasNext()}">Next</a>
 </div>
 </body>
 </html>

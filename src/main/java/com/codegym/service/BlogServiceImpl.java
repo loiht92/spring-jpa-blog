@@ -40,6 +40,11 @@ public class BlogServiceImpl implements BlogService{
     }
 
     @Override
+    public Page<Blog> findAllByOrderByNameDesc(Pageable pageable) {
+        return blogRepository.findAllByOrderByNameDesc(pageable);
+    }
+
+    @Override
     public Page<Blog> findAllByCategory(Category category, Pageable pageable) {
         return blogRepository.findAllByCategory(category, pageable);
     }

@@ -3,6 +3,7 @@ package com.codegym.model;
 import org.springframework.web.bind.annotation.PutMapping;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -22,7 +23,7 @@ public class Category { // Chu de
     }
 
     @OneToMany(targetEntity = Blog.class) //
-    private List<Blog> blogs;
+    private List<Blog> blogs = new ArrayList<>();
 
     public Long getId() {
         return id;

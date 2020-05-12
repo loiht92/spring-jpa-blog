@@ -24,6 +24,11 @@ public class CategoryController {
     @Autowired
     private BlogService blogService;
 
+    @ModelAttribute("blog")
+    public Page<Blog> findAll(Pageable pageable){
+        return blogService.findAll(pageable);
+    }
+
     @GetMapping
     public ModelAndView showFormCategory(@RequestParam("search")Optional<String> search, Pageable pageable){
         Page<Category> categories;
