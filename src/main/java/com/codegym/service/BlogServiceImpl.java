@@ -8,6 +8,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
+import java.util.List;
 import java.util.Optional;
 
 public class BlogServiceImpl implements BlogService{
@@ -20,9 +21,24 @@ public class BlogServiceImpl implements BlogService{
     }
 
     @Override
-    public Optional<Blog> findById(Long id) {
-        return blogRepository.findById(id);
+    public List<Blog> findAll() {
+        return (List<Blog>) blogRepository.findAll();
     }
+
+    @Override
+    public Iterable<Blog> findAllByCategory(Category category) {
+        return blogRepository.findAllByCategory(category);
+    }
+
+    @Override
+    public Blog findById(Long id) {
+        return null;
+    }
+
+//    @Override
+//    public Optional<Blog> findById(Long id) {
+//        return blogRepository.findById(id);
+//    }
 
     @Override
     public void save(Blog blog) {

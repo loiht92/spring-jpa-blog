@@ -14,7 +14,12 @@ public interface CategoryService {
     @Query("select c from Category c where c.name like %:name%")
     Page<Category> findAllByCategoryName(String name, Pageable pageable);
 
-    Optional<Category> findById(Long id);
+    //Optional<Category> findById(Long id);
+
+    //Them restful
+    Iterable<Category> findAll();
+
+    Category findById(Long id);
 
     void save(Category category);
 
